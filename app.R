@@ -24,22 +24,22 @@ resi$periodo_precio <- format(resi$periodo_precio, "%b%Y")
 latitudes <- numeric(length(resi$ubicacion))
 longitudes <- numeric(length(resi$ubicacion))
 
-#for (i in 1:length(resi$ubicacion)) {
-#    geo_coded <-
-#        geocode_OSM(stri_trans_general(
-#            paste0(resi$ubicacion[i], ", Cordoba capital, provincia de cordoba,  Argentina"),
-#            "Latin-ASCII"
-#        ))
-#    longitudes[i] <- geo_coded$coords[1]
-#    latitudes[i] <- geo_coded$coords[2]
-#}
+for (i in 1:length(resi$ubicacion)) {
+    geo_coded <-
+        geocode_OSM(stri_trans_general(
+            paste0(resi$ubicacion[i], ", Cordoba capital, provincia de cordoba,  Argentina"),
+            "Latin-ASCII"
+        ))
+    longitudes[i] <- geo_coded$coords[1]
+    latitudes[i] <- geo_coded$coords[2]
+}
 
 resi$lat <- latitudes
 resi$lon <- longitudes
 
 resi <- resi |> mutate(id = seq.int(nrow(resi)))
                        
-#saveRDS(resi, file = "data/resi.RDS")
+saveRDS(resi, file = "data/resi.RDS")
 resi <- readRDS(file = "data/resi.RDS")
 
 
@@ -126,6 +126,7 @@ filter_vars <-
 
 ui <- fluidPage(
   titlePanel("Explorador de Residencias Universitarias en Córdoba, Argentina"),
+  theme = shinytheme("cerulean"),
   
   # side panel
   mainPanel(
