@@ -5,10 +5,6 @@ Este proyecto es un explorador interactivo de residencias universitarias en la c
 
 Se geolocalizan las ubicaciones en el mapa a partir de la dirección de las residencias. Se utilizan íconos para facilitar la lectura visual de la información.
 
-## Demo
-
-Puedes ver una demostración en vivo del proyecto [aquí](enlace-a-demo).
-
 ## Capturas de Pantalla
 
 ![Pantalla general](screenshot1.png)
